@@ -2,9 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<div class="HomeDIv">
+<div>
+  <button (click)="onClickGame()">
+    Pizzas
+  </button>
+
+  <div *ngIf="selectGame==true" class="Wrapper">
+  <div *ngIf="selectGame==true" class="DropDownDiv">
+    <img src="../../assets/img/archer.jpg" class="GameImage">
+    <p> This is a sample description for the image </p>
+  </div>
+  </div>
+</div>
+
+<div>
+  <button (click)="onClickAI()">
+    Salads
+  </button>
+
+  <div *ngIf="selectAI==true" class="Wrapper">
+    <div *ngIf="selectAI==true" class="DropDownDiv">
+      <img src="../../assets/img/archer.jpg" class="GameImage">
+      <p> This is a sample description for the image </p>
+    </div>
+  </div>
+</div>
+
+<div>
+  <button (click)="onClickWeb()">
+    Drinks
+  </button>
+
+  <div *ngIf="selectWeb==true" class="Wrapper">
+    <div *ngIf="selectWeb==true" class="DropDownDiv">
+      <img src="../../assets/img/archer.jpg" class="GameImage">
+      <p> This is a sample description for the image </p>
+    </div>
+  </div>
+</div>
+</div>
+
 </body>
 </html>

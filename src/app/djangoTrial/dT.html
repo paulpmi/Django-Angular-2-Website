@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form (ngSubmit)="addSpecial(type.value)" #specialForm="ngForm" id="specialForm">
+  Type: <input type="text" name="type" id="specialType" maxlength="30" required #type/><br>
+  <input type="submit"/>
+</form>
+
+<ul><li *ngFor="let special of specials">
+  <a>{{special.type}}</a>
+ </li></ul>
+
+<div>
+  <h4> Add Minion </h4>
+<form (ngSubmit)="addCard(cardName1.value, cardAttack.value, cardHealth.value, specialList.value, cardDesc1.value, cardImg.value, minionClass.value)" id="cardForm">
+  Name:   <input type="text" name="cardName" #cardName1><br>
+  Attack: <input type="text" name="cardAttack" #cardAttack><br>
+  Health: <input type="text" name="cardHealth" #cardHealth><br>
+  Class: <select form="cardForm" #minionClass>
+  <option *ngFor="let class of classes"> {{class}} </option>
+</select>
+  Special: <select name="specialList" form="cardForm" #specialList>
+  <option *ngFor="let special of specials"   value="{{special.type}}"> {{special.type}}</option>
+  </select><br>
+  Description: <input type="text" name="cardDesc" #cardDesc1><br>
+  <input type="file" name="cardImg" #cardImg>
+  <input type="submit">
+</form>
+</div>
+
+
+<div>
+  <h4>Add Spell</h4>
+<form (ngSubmit)="addSpell(cardName.value, abilityList.value, cardDesc.value, spellClass.value)" id="spellForm">
+  Name:   <input type="text" name="cardName" #cardName><br>
+  Type: <select name="abilityList" form="spellForm" #abilityList>
+  Class: <select form="cardForm" #spellClass>
+  <option *ngFor="let class of classes"> {{class}} </option>
+</select>
+  <option *ngFor="let ability of abilities" value="{{ability.ability}}">
+    {{ability.ability}}
+  </option>
+</select><br>
+  Description: <input type="text" name="cardDesc" #cardDesc><br>
+  <input type="submit">
+</form>
+
+</div>

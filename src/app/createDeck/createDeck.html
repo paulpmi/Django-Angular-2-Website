@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+<div *ngIf="deckCreated == false">
+  <h4> Create Deck </h4>
+  <form (ngSubmit)="createDeck(deckName.value, deckClass.value)" id="DeckForm">
+    Name: <input type="text" #deckName>
+    Class: <select form="DeckForm" #deckClass>
+    <option *ngFor="let class of classes"> {{class}} </option>
+  </select>
+    <input type="submit" name="Create" value="Create">
+  </form>
+</div>
+
+<div *ngIf="deckCreated == true">
+  Cards:
+  <ul><li *ngFor="let card of cards">
+    <a (click)="addToDeck(card.name)">{{card.name}} {{card.specialDescription}}</a>
+    <!--<a (click)="addToDeck(card.name)">{{card.name}} {{card.specialDescription}}</a>
+    --></li></ul>
+
+  <ul>
+    {{deckName}} {{deckClass}}
+    <li *ngFor="let card of deck">
+      {{card}}
+      <!--<a (click)="addToDeck(card.name)"> {{card.name}} </a>-->
+    </li>
+  </ul>
+
+</div>
+
+
 </body>
 </html>
